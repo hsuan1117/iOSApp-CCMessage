@@ -274,11 +274,15 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
+  - SwifterSwift/Foundation (5.1.0)
+  - SwifterSwift/UIKit (5.1.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Firestore
+  - SwifterSwift/Foundation
+  - SwifterSwift/UIKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -303,6 +307,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SwifterSwift
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -326,7 +331,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
 
-PODFILE CHECKSUM: 72c7d9b709282512c903b4115945ccccce00ea65
+PODFILE CHECKSUM: 9425fde36f3b4190b7527fb13eb1c60e03401292
 
 COCOAPODS: 1.6.1
