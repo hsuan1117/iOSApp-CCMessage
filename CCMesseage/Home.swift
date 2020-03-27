@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import SwifterSwift
 
 class Home: UIViewController {
     
@@ -8,12 +9,6 @@ class Home: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.tintColor = UIColor(named: "blue")
-        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                
-            } else {
-                
-            }
-        }
+        
     }
 }
