@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MessageList: UIViewController {
+class MessageListView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -29,7 +29,7 @@ class MessageList: UIViewController {
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else {
-                
+                //載入訊息
             }
         }
     }

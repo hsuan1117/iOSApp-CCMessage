@@ -23,6 +23,14 @@
                                     <segue destination="LRi-rJ-ydT" kind="show" id="3S8-cB-mUD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-gR-JXf">
+                                <rect key="frame" x="192" y="460" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="登入"/>
+                                <connections>
+                                    <segue destination="Bhq-Ej-g6P" kind="showDetail" id="DiE-FN-fgK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -33,10 +41,62 @@
             </objects>
             <point key="canvasLocation" x="-11903" y="31"/>
         </scene>
-        <!--Message List-->
+        <!--Account View-->
+        <scene sceneID="JqD-07-m3k">
+            <objects>
+                <viewController id="Bhq-Ej-g6P" customClass="AccountView" customModule="CCMesseage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gU9-UN-KdD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-24-N68">
+                                <rect key="frame" x="103" y="185" width="209" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fT-JJ-2L6">
+                                <rect key="frame" x="103" y="266" width="209" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTh-Na-ykM">
+                                <rect key="frame" x="29" y="360" width="209" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="登入"/>
+                                <connections>
+                                    <action selector="OnclickLogin:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="fKr-rg-GLa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoG-tC-BiQ">
+                                <rect key="frame" x="125" y="406" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="註冊"/>
+                                <connections>
+                                    <action selector="OnclickRegister:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="D5s-TN-OFQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="n0P-J4-xJl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vPO-BV-2nl"/>
+                    <connections>
+                        <outlet property="btnLogin" destination="nTh-Na-ykM" id="qJ5-YC-uqO"/>
+                        <outlet property="btnRegister" destination="GoG-tC-BiQ" id="372-wz-LUd"/>
+                        <outlet property="inputAccount" destination="hBN-24-N68" id="aZU-yq-iu6"/>
+                        <outlet property="inputPassword" destination="5fT-JJ-2L6" id="D5t-2m-bie"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gv0-4n-uyU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11904.347826086958" y="744.64285714285711"/>
+        </scene>
+        <!--Message List View-->
         <scene sceneID="7Wm-fi-aMp">
             <objects>
-                <viewController id="LRi-rJ-ydT" customClass="MessageList" customModule="CCMesseage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LRi-rJ-ydT" customClass="MessageListView" customModule="CCMesseage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fDy-xI-2we">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
