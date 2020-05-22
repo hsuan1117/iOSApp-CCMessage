@@ -3,8 +3,7 @@ import FirebaseAuth
 import SwifterSwift
 
 class AccountView: UIViewController {
-    var ACM ;
-    
+    var ACM = AccountManager()
     @IBOutlet weak var inputPassword: UITextField!
     @IBOutlet weak var inputAccount: UITextField!
     
@@ -19,11 +18,12 @@ class AccountView: UIViewController {
         }else{
             ACM.registerWithPassword(account: inputAccount.text!, password: inputPassword.text!, completion: {
                 result in
+                self.showAlert(title: "Succeed", message: "Register Succeed")
                 if result.error != nil{
                     self.showAlert(title: "Error", message: result.error.debugDescription)
                 }
                 if result.auth != nil {
-                    self.showAlert(title: "Succeed", message: "Logined Succeed")
+                    self.showAlert(title: "Succeed", message: "Register Succeed")
                 }
                 
             })
@@ -37,7 +37,12 @@ class AccountView: UIViewController {
         }else{
             ACM.loginWithPassword(account: inputAccount.text!, password: inputPassword.text!, completion: {
                 result in
-                
+                if result.error != nil{
+                    self.showAlert(title: "Error", message: result.error?.localizedDescription)
+                }
+                if result.auth != nil {
+                    self.showAlert(title: "Succeed", message: "Login Succeed")
+                }
             })
         }
     }
@@ -52,11 +57,9 @@ class AccountView: UIViewController {
         let pLayer = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
         pLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
         self.view.addSubview(pLayer)
-        ACM = AccountManager(completion: {
-            
-        })
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user == nil {
+        ACM.onAuthInit(completion: {
+            result in
+            if result.user == nil {
                 pLayer.isHidden = true
             } else {
                //已登入
@@ -69,6 +72,6 @@ class AccountView: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 self.navigationController?.popViewController(animated: true)
             }
-        }
+        })
     }
 }

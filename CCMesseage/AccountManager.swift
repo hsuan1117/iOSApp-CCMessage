@@ -11,8 +11,8 @@ import Firebase
 import SwifterSwift
 
 struct AuthResult {
-    var auth : AuthDataResult?
-    
+    var auth  : AuthDataResult?
+    var user  : User?
     var error : Error?
 }
 
@@ -42,9 +42,14 @@ class AccountManager {
         try! Auth.auth().signOut()
         completion()
     }
-    init(completion: @escaping ()->()){
+    
+    // Define
+    func onAuthInit(completion: @escaping (AuthResult)->()){
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            completion()
+            completion(AuthResult(auth: nil, user: user, error: nil))
         }
+    }
+    init(){
+        
     }
 }
