@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "424A03B045BD171A8088796642A69606"
+               BlueprintIdentifier = "988A2712AA7E4BE76984C2C8DC210C75"
                BuildableName = "absl.framework"
                BlueprintName = "abseil"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -135,6 +135,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="3S8-cB-mUD"/>
         <segue reference="55R-SK-D3G"/>
     </inferredMetricsTieBreakers>
 </document>

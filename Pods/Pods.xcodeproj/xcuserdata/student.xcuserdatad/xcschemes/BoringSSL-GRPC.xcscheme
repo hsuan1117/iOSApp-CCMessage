@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "177D65B8355F6F309C7068A8E5E7793E"
+               BlueprintIdentifier = "4BB9257337104893E5FA39CCD81922FF"
                BuildableName = "openssl_grpc.framework"
                BlueprintName = "BoringSSL-GRPC"
                ReferencedContainer = "container:Pods.xcodeproj">
