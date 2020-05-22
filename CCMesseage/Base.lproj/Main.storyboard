@@ -77,6 +77,14 @@
                                     <action selector="OnclickRegister:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="D5s-TN-OFQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k77-gY-L2K">
+                                <rect key="frame" x="192" y="529" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="登出"/>
+                                <connections>
+                                    <action selector="OnLogoutClick:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="WeI-z1-dCu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="n0P-J4-xJl"/>
@@ -91,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gv0-4n-uyU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11904.347826086958" y="744.64285714285711"/>
+            <point key="canvasLocation" x="-11904.347826086958" y="762.05357142857144"/>
         </scene>
         <!--Message List View-->
         <scene sceneID="7Wm-fi-aMp">
@@ -110,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZ9-MI-vkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11104.347826086958" y="30.803571428571427"/>
+            <point key="canvasLocation" x="-11146" y="31"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hD-hq-7as">
@@ -135,7 +143,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3S8-cB-mUD"/>
         <segue reference="55R-SK-D3G"/>
     </inferredMetricsTieBreakers>
 </document>

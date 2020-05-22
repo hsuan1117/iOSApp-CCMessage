@@ -3,7 +3,7 @@ import FirebaseAuth
 import SwifterSwift
 
 class AccountView: UIViewController {
-    let ACM = Account()
+    var ACM ;
     
     @IBOutlet weak var inputPassword: UITextField!
     @IBOutlet weak var inputAccount: UITextField!
@@ -19,6 +19,12 @@ class AccountView: UIViewController {
         }else{
             ACM.registerWithPassword(account: inputAccount.text!, password: inputPassword.text!, completion: {
                 result in
+                if result.error != nil{
+                    self.showAlert(title: "Error", message: result.error.debugDescription)
+                }
+                if result.auth != nil {
+                    self.showAlert(title: "Succeed", message: "Logined Succeed")
+                }
                 
             })
         }
@@ -29,9 +35,16 @@ class AccountView: UIViewController {
         }else if inputPassword.isEmpty {
             showAlert(title: "警告", message: "密碼為空")
         }else{
-            
-            fAccount.loginWithPassword(account: inputPassword.text!, password: inputAccount.text!)
+            ACM.loginWithPassword(account: inputAccount.text!, password: inputPassword.text!, completion: {
+                result in
+                
+            })
         }
+    }
+    @IBAction func OnLogoutClick(_ sender: Any) {
+        ACM.logout(completion:{
+            self.showAlert(title: "提示", message: "登出成功")
+        })
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +52,15 @@ class AccountView: UIViewController {
         let pLayer = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
         pLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
         self.view.addSubview(pLayer)
-        
-        
+        ACM = AccountManager(completion: {
+            
+        })
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                let alert = UIAlertController(title: "警告", message: "你尚未登入", preferredStyle: .alert)
+            if user == nil {
+                pLayer.isHidden = true
+            } else {
+               //已登入
+                let alert = UIAlertController(title: "警告", message: "你已經登入", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {
                     (UIAlertAction) in
                     pLayer.isHidden = true
@@ -51,10 +68,6 @@ class AccountView: UIViewController {
                 }))
                 self.present(alert, animated: true, completion: nil)
                 self.navigationController?.popViewController(animated: true)
-            } else {
-               //已登入
-                
-                
             }
         }
     }
