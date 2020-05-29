@@ -70,7 +70,7 @@ class AccountView: UIViewController {
         super.viewDidLoad()
         
         let pLayer = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
-        pLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
+        pLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.7)
         self.view.addSubview(pLayer)
         ACM.onAuthInit(completion: {
             result in
@@ -82,10 +82,10 @@ class AccountView: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {
                     (UIAlertAction) in
                     pLayer.isHidden = true
-                    self.navigationController?.popToRootViewController(animated: true)
+                    //self.navigationController?.popToRootViewController(animated: true)
                 }))
                 self.present(alert, animated: true, completion: nil)
-                self.navigationController?.popViewController(animated: true)
+                //self.navigationController?.popViewController(animated: true)
             }
         })
     }

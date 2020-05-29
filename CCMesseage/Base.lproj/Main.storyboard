@@ -15,31 +15,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-Ax-ygt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-Ax-ygt">
                                 <rect key="frame" x="184" y="521" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="聊天室"/>
                                 <connections>
                                     <segue destination="LRi-rJ-ydT" kind="show" id="3S8-cB-mUD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-gR-JXf">
-                                <rect key="frame" x="192" y="460" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="登入"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-gR-JXf">
+                                <rect key="frame" x="20" y="769" width="374" height="39"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="帳號">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Bhq-Ej-g6P" kind="showDetail" id="DiE-FN-fgK"/>
+                                    <segue destination="Bhq-Ej-g6P" kind="show" id="DiE-FN-fgK"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BYd-Ax-ygt" firstAttribute="centerX" secondItem="jxz-gR-JXf" secondAttribute="centerX" id="V3i-Nu-92d"/>
+                            <constraint firstItem="jxz-gR-JXf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="XkY-wg-NCB"/>
+                            <constraint firstItem="jxz-gR-JXf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="g17-HM-JGF"/>
+                            <constraint firstItem="jxz-gR-JXf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gUq-QC-3J3"/>
+                            <constraint firstItem="BYd-Ax-ygt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="521" id="l1w-1V-gho"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="ijx-Fs-GGi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11903" y="31"/>
+            <point key="canvasLocation" x="-11904.347826086958" y="30.803571428571427"/>
         </scene>
         <!--Account View-->
         <scene sceneID="JqD-07-m3k">
@@ -127,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZ9-MI-vkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10706" y="31"/>
+            <point key="canvasLocation" x="-10712" y="31"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hD-hq-7as">
