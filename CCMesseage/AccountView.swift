@@ -9,14 +9,27 @@ class AccountView: UIViewController {
     
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var btnLogin: UIButton!
-
+    @IBOutlet weak var btnAnonymous: UIButton!
+    
+    @IBAction func OnclickAnonymous(_ sender: Any) {
+        ACM.loginAnonymous(completion: {
+            result in
+            if result.error != nil{
+                self.showAlert(title: "Error", message: result.error?.localizedDescription)
+            }
+            if result.auth != nil {
+                self.showAlert(title: "Succeed", message: "Login Succeed")
+            }
+        })
+    }
     @IBAction func OnclickRegister(_ sender: Any) {
         if inputAccount.isEmpty {
             showAlert(title: "警告", message: "帳號為空")
         }else if inputPassword.isEmpty {
             showAlert(title: "警告", message: "密碼為空")
         }else{
-            ACM.registerWithPassword(account: inputAccount.text!, password: inputPassword.text!, completion: {
+            ACM.registerWithPassword(account: inputAccount.text!, password: inputPassword.text! ,
+                                     login: true, onRegister:{
                 result in
                 self.showAlert(title: "Succeed", message: "Register Succeed")
                 if result.error != nil{
@@ -25,6 +38,8 @@ class AccountView: UIViewController {
                 if result.auth != nil {
                     self.showAlert(title: "Succeed", message: "Register Succeed")
                 }
+            },onLogin: {
+                result in
                 
             })
         }

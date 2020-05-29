@@ -20,12 +20,16 @@ class AccountManager {
     func registerWithPassword(
         account: String,
         password: String,
-        completion: @escaping (AuthResult)->()
+        login: Bool,
+        onRegister: @escaping (AuthResult)->(),
+        onLogin: @escaping (AuthResult)->()
     ){
         Auth.auth().createUser(withEmail: account, password: password) {
             authResult, error in
-            completion(AuthResult(auth: authResult,error: error))
-            
+            onRegister(AuthResult(auth: authResult,error: error))
+        }
+        if login {
+            self.loginWithPassword(account: account, password: password, completion: onLogin)
         }
     }
     func loginWithPassword(
@@ -36,8 +40,16 @@ class AccountManager {
                 [weak self] authResult, error in
                 guard let strongSelf = self else { return }
                 completion(AuthResult(auth: authResult, error: error))
-        }
+            }
     }
+    
+    func loginAnonymous(
+        completion: @escaping (AuthResult)->()){
+            Auth.auth().signInAnonymously() { (authResult, error) in
+                completion(AuthResult(auth: authResult, error: error))
+            }
+    }
+    
     func logout(completion: @escaping ()->()){
         try! Auth.auth().signOut()
         completion()
@@ -49,6 +61,7 @@ class AccountManager {
             completion(AuthResult(auth: nil, user: user, error: nil))
         }
     }
+    
     init(){
         
     }

@@ -85,12 +85,21 @@
                                     <action selector="OnLogoutClick:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="WeI-z1-dCu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d91-W1-8IQ">
+                                <rect key="frame" x="184" y="655" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="匿名登入"/>
+                                <connections>
+                                    <action selector="OnclickAnonymous:" destination="Bhq-Ej-g6P" eventType="touchDown" id="p0b-L6-5aV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="n0P-J4-xJl"/>
                     </view>
                     <navigationItem key="navigationItem" id="vPO-BV-2nl"/>
                     <connections>
+                        <outlet property="btnAnonymous" destination="d91-W1-8IQ" id="Qr5-oC-oEc"/>
                         <outlet property="btnLogin" destination="nTh-Na-ykM" id="qJ5-YC-uqO"/>
                         <outlet property="btnRegister" destination="GoG-tC-BiQ" id="372-wz-LUd"/>
                         <outlet property="inputAccount" destination="hBN-24-N68" id="aZU-yq-iu6"/>
@@ -118,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZ9-MI-vkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11146" y="31"/>
+            <point key="canvasLocation" x="-10706" y="31"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hD-hq-7as">
