@@ -10,15 +10,19 @@ import UIKit
 import Firebase
 
 class MessageListView: UIViewController {
+    @IBOutlet weak var btnNewRoom: UIButton!
+    let ACM = AccountManager()
     
+    @IBAction func onAddClick(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad();
-        var ACM = AccountManager()
         
         let pLayer = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
         pLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
         self.view.addSubview(pLayer)
-       
+        
         ACM.onAuthInit(completion: {
             result in
             if result.user == nil {
