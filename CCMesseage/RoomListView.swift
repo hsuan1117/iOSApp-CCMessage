@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import MessengerKit
 
-class MessageListView: UIViewController {
+class RoomListView: UIViewController {
     @IBOutlet weak var btnNewRoom: UIButton!
     let ACM = AccountManager()
     
