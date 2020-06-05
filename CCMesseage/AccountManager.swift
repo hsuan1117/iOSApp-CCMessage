@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import SwifterSwift
+import MessengerKit
 
 struct AuthResult {
     var auth  : AuthDataResult?

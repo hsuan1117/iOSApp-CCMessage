@@ -17,6 +17,14 @@ struct Message {
 
 struct Room {
     var name    : String
+    var id      : String
+}
+
+struct RoomUser: MSGUser {
+    var displayName: String
+    var avatar: UIImage?
+    var avatarUrl: URL?
+    var isSender: Bool
 }
 
 class MessageManager {

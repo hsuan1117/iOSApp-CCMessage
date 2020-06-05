@@ -159,6 +159,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="RoomName" destination="2gV-Io-uWV" id="t5X-A6-fWj"/>
+                                            <segue destination="dDd-0a-qY1" kind="show" identifier="showMessage" id="d4c-uJ-SQM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -197,6 +198,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZ9-MI-vkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-10713.04347826087" y="30.803571428571427"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KXf-QI-4Xu">
+            <objects>
+                <viewController id="dDd-0a-qY1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tm3-Di-ANK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="f0R-T7-qRH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tXb-3I-s05"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qrv-Xh-DEs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-9846" y="25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hD-hq-7as">

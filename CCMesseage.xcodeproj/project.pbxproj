@@ -14,6 +14,7 @@
 		3F801F03244931D700DA268C /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F801F02244931D600DA268C /* AccountView.swift */; };
 		3F801F092449420300DA268C /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F801F082449420300DA268C /* AccountManager.swift */; };
 		3FABA1282489CA3F00E44D9A /* RoomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FABA1272489CA3F00E44D9A /* RoomListCell.swift */; };
+		3FABA12A2489D1E400E44D9A /* MessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FABA1292489D1E400E44D9A /* MessageListView.swift */; };
 		3FE05AD32424537100066443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE05AD22424537100066443 /* AppDelegate.swift */; };
 		3FE05AD52424537100066443 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE05AD42424537100066443 /* SceneDelegate.swift */; };
 		3FE05ADA2424537100066443 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE05AD82424537100066443 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		3F801F02244931D600DA268C /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		3F801F082449420300DA268C /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		3FABA1272489CA3F00E44D9A /* RoomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListCell.swift; sourceTree = "<group>"; };
+		3FABA1292489D1E400E44D9A /* MessageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListView.swift; sourceTree = "<group>"; };
 		3FE05ACF2424537100066443 /* CCMesseage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCMesseage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE05AD22424537100066443 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FE05AD42424537100066443 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				3F801F02244931D600DA268C /* AccountView.swift */,
 				3F2C5C78242D8315006A62CC /* GoogleService-Info.plist */,
 				3F2C5C76242D7E22006A62CC /* RoomListView.swift */,
+				3FABA1292489D1E400E44D9A /* MessageListView.swift */,
 				3F696DCA24809B46009F4FC0 /* MessageManager.swift */,
 				3FE05ADB2424537800066443 /* Assets.xcassets */,
 				3FE05ADD2424537800066443 /* LaunchScreen.storyboard */,
@@ -254,6 +257,7 @@
 				3F801F092449420300DA268C /* AccountManager.swift in Sources */,
 				3F2C5C7B242D83D9006A62CC /* Home.swift in Sources */,
 				3FE05AD32424537100066443 /* AppDelegate.swift in Sources */,
+				3FABA12A2489D1E400E44D9A /* MessageListView.swift in Sources */,
 				3FE05AD52424537100066443 /* SceneDelegate.swift in Sources */,
 				3F801F03244931D700DA268C /* AccountView.swift in Sources */,
 				3FABA1282489CA3F00E44D9A /* RoomListCell.swift in Sources */,

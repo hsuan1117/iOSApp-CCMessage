@@ -57,5 +57,15 @@ class RoomListView: UIViewController,UITableViewDataSource,UITableViewDelegate {
         RoomListTable.delegate   = self
         RoomListTable.dataSource = self
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMessage" {
+            if let indexPath = RoomListTable.indexPathForSelectedRow {
+                let ToWhere = segue.destination as! MessageListView
+                
+            }
+        }else{
+            
+        }
+
+    }
 }
