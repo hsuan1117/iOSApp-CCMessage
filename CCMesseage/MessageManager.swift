@@ -15,6 +15,9 @@ struct Message {
     var url     : String
 }
 
+struct Room {
+    var name    : String
+}
 
 class MessageManager {
     var Messages = [Message]()

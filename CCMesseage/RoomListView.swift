@@ -10,8 +10,22 @@ import UIKit
 import Firebase
 import MessengerKit
 
-class RoomListView: UIViewController {
+class RoomListView: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    var RoomList : [Room] = []
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return RoomList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = RoomListTable.dequeueReusableCell(withIdentifier: "room_cell") as! RoomListCell
+        cell.RoomName.text = RoomList[indexPath.row].name
+        return cell
+    }
+    
     @IBOutlet weak var btnNewRoom: UIButton!
+    @IBOutlet weak var RoomListTable: UITableView!
+    
     let ACM = AccountManager()
     
     @IBAction func onAddClick(_ sender: Any) {
@@ -23,7 +37,7 @@ class RoomListView: UIViewController {
         let pLayer = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
         pLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
         self.view.addSubview(pLayer)
-        
+        RoomList.append(Room(name: "Microsoft"))
         ACM.onAuthInit(completion: {
             result in
             if result.user == nil {
@@ -40,6 +54,8 @@ class RoomListView: UIViewController {
                 
             }
         })
+        RoomListTable.delegate   = self
+        RoomListTable.dataSource = self
     }
     
 }

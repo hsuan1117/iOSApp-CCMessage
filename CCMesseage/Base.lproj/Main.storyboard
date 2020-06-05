@@ -136,22 +136,30 @@
                                 <rect key="frame" x="20" y="100" width="374" height="728"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="message_cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DMI-aa-aBE" customClass="RoomListCell" customModule="CCMesseage" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="message_cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="room_cell" id="DMI-aa-aBE" customClass="RoomListCell" customModule="CCMesseage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="53.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DMI-aa-aBE" id="L25-Ni-1b9">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gV-Io-uWV">
-                                                    <rect key="frame" x="49" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gV-Io-uWV">
+                                                    <rect key="frame" x="40" y="16" width="294" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2gV-Io-uWV" firstAttribute="top" secondItem="L25-Ni-1b9" secondAttribute="topMargin" constant="5" id="J7l-8c-U24"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2gV-Io-uWV" secondAttribute="bottom" constant="5" id="eD9-gQ-mUO"/>
+                                                <constraint firstItem="2gV-Io-uWV" firstAttribute="leading" secondItem="L25-Ni-1b9" secondAttribute="leadingMargin" constant="20" id="iwy-CH-Klg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2gV-Io-uWV" secondAttribute="trailing" constant="20" id="lwm-Uo-Zuc"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="RoomName" destination="2gV-Io-uWV" id="t5X-A6-fWj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -181,6 +189,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Ys-iV-6sD"/>
                     <connections>
+                        <outlet property="RoomListTable" destination="0fy-zv-Nld" id="JB5-vX-6X0"/>
                         <outlet property="btnNewRoom" destination="Smd-yy-LkP" id="7lW-9t-jOa"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToHome" id="55R-SK-D3G"/>
                     </connections>
