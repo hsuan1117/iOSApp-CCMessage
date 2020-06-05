@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "875C5236C5B916A955F38202AF833917"
+               BlueprintIdentifier = "5C6854E9FCB98C08D216CFEA107CC178"
                BuildableName = "Pods_CCMesseage.framework"
                BlueprintName = "Pods-CCMesseage"
                ReferencedContainer = "container:Pods.xcodeproj">

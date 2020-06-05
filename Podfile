@@ -12,4 +12,5 @@ target 'CCMesseage' do
   pod 'Firebase/Firestore'
   pod 'SwifterSwift/UIKit'
   pod 'SwifterSwift/Foundation'
+  pod 'MessengerKit', :git => 'https://github.com/steve228uk/MessengerKit.git'
 end
