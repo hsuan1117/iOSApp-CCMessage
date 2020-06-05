@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import MessengerKit
 
 struct Message {
     var title   : String
@@ -20,7 +21,7 @@ struct Room {
     var id      : String
 }
 
-struct RoomUser: MSGUser {
+struct RoomUser : MSGUser {
     var displayName: String
     var avatar: UIImage?
     var avatarUrl: URL?
@@ -37,7 +38,6 @@ class MessageManager {
         
     }
     func addRoom(with:String,name:String){
-        
         ref = db.collection("/room").addDocument(data: [
             "people":with,
             "name":name

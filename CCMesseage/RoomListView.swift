@@ -12,7 +12,7 @@ import MessengerKit
 
 class RoomListView: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var RoomList : [Room] = []
-    
+    let MessageViewController = UINavigationController(rootViewController: MessageListView())
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RoomList.count
     }
@@ -27,17 +27,19 @@ class RoomListView: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var RoomListTable: UITableView!
     
     let ACM = AccountManager()
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController!.showDetailViewController(MessageViewController, sender: nil)
+    }
     @IBAction func onAddClick(_ sender: Any) {
         
     }
     override func viewDidLoad() {
         super.viewDidLoad();
-        
+        MessageViewController.viewControllers.first?.loadViewIfNeeded()
         let pLayer = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
         pLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
         self.view.addSubview(pLayer)
-        RoomList.append(Room(name: "Microsoft"))
+        RoomList.append(Room(name: "Microsoft", id: "123"))
         ACM.onAuthInit(completion: {
             result in
             if result.user == nil {
@@ -59,10 +61,7 @@ class RoomListView: UIViewController,UITableViewDataSource,UITableViewDelegate {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMessage" {
-            if let indexPath = RoomListTable.indexPathForSelectedRow {
-                let ToWhere = segue.destination as! MessageListView
-                
-            }
+            
         }else{
             
         }

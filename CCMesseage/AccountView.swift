@@ -74,6 +74,9 @@ class AccountView: UIViewController {
         self.view.addSubview(pLayer)
         ACM.onAuthInit(completion: {
             result in
+            self.ACM.initProfile {
+                
+            }
             if result.user == nil {
                 pLayer.isHidden = true
             } else {

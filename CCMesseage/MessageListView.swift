@@ -12,9 +12,9 @@ import MessengerKit
 var messages : [Message] = []
 class MessageListView: MSGMessengerViewController {
     
-    let steve = RoomUser(displayName: "Steve", avatar: #imageLiteral(resourceName: "steve228uk"), avatarUrl: nil, isSender: true)
+    let steve = RoomUser(displayName: "Steve", avatar: UIImage(named: "test"), avatarUrl: nil, isSender: true)
     
-    let tim = RoomUser(displayName: "Tim", avatar: #imageLiteral(resourceName: "timi"), avatarUrl: nil, isSender: false)
+    let tim = RoomUser(displayName: "Tim",avatar: UIImage(named: "test"), avatarUrl: nil, isSender: false)
     
     lazy var messages: [[MSGMessage]] = {
         return [
@@ -29,7 +29,9 @@ class MessageListView: MSGMessengerViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Message"
         dataSource = self
+        delegate   = self
     }
 }
 
@@ -55,4 +57,34 @@ extension MessageListView: MSGDataSource {
         return messages[section].first?.user.displayName
     }
 
+}
+
+// MARK: - MSGDelegate
+
+extension MessageListView: MSGDelegate {
+    
+    func linkTapped(url: URL) {
+        print("Link tapped:", url)
+    }
+    
+    func avatarTapped(for user: MSGUser) {
+        print("Avatar tapped:", user)
+    }
+    
+    func tapReceived(for message: MSGMessage) {
+        print("Tapped: ", message)
+    }
+    
+    func longPressReceieved(for message: MSGMessage) {
+        print("Long press:", message)
+    }
+    
+    func shouldDisplaySafari(for url: URL) -> Bool {
+        return true
+    }
+    
+    func shouldOpen(url: URL) -> Bool {
+        return true
+    }
+    
 }

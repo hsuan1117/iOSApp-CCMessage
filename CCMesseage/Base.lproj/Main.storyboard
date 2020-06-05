@@ -12,18 +12,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="Home" customModule="CCMesseage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-Ax-ygt">
-                                <rect key="frame" x="184" y="521" width="46" height="30"/>
+                                <rect key="frame" x="184" y="609" width="46" height="30"/>
                                 <state key="normal" title="聊天室"/>
                                 <connections>
                                     <segue destination="LRi-rJ-ydT" kind="show" id="3S8-cB-mUD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-gR-JXf">
-                                <rect key="frame" x="20" y="769" width="374" height="39"/>
+                                <rect key="frame" x="20" y="823" width="374" height="39"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="帳號">
@@ -60,48 +60,42 @@
             <objects>
                 <viewController id="Bhq-Ej-g6P" customClass="AccountView" customModule="CCMesseage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gU9-UN-KdD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-24-N68">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-24-N68">
                                 <rect key="frame" x="103" y="185" width="209" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fT-JJ-2L6">
-                                <rect key="frame" x="103" y="266" width="209" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fT-JJ-2L6">
+                                <rect key="frame" x="103" y="266" width="208" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTh-Na-ykM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTh-Na-ykM">
                                 <rect key="frame" x="29" y="360" width="209" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="登入"/>
                                 <connections>
                                     <action selector="OnclickLogin:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="fKr-rg-GLa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoG-tC-BiQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoG-tC-BiQ">
                                 <rect key="frame" x="125" y="406" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="註冊"/>
                                 <connections>
                                     <action selector="OnclickRegister:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="D5s-TN-OFQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k77-gY-L2K">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k77-gY-L2K">
                                 <rect key="frame" x="192" y="529" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="登出"/>
                                 <connections>
                                     <action selector="OnLogoutClick:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="WeI-z1-dCu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d91-W1-8IQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d91-W1-8IQ">
                                 <rect key="frame" x="184" y="655" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="匿名登入"/>
                                 <connections>
                                     <action selector="OnclickAnonymous:" destination="Bhq-Ej-g6P" eventType="touchDown" id="p0b-L6-5aV"/>
@@ -109,6 +103,26 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5fT-JJ-2L6" firstAttribute="top" secondItem="hBN-24-N68" secondAttribute="bottom" constant="47" id="24w-Sa-7EC"/>
+                            <constraint firstItem="5fT-JJ-2L6" firstAttribute="leading" secondItem="n0P-J4-xJl" secondAttribute="leading" constant="103" id="2bG-Yc-ZvG"/>
+                            <constraint firstItem="d91-W1-8IQ" firstAttribute="top" secondItem="k77-gY-L2K" secondAttribute="bottom" constant="96" id="8gQ-1y-AJm"/>
+                            <constraint firstAttribute="bottom" secondItem="k77-gY-L2K" secondAttribute="bottom" constant="337" id="BN0-eW-HAz"/>
+                            <constraint firstItem="n0P-J4-xJl" firstAttribute="trailing" secondItem="nTh-Na-ykM" secondAttribute="trailing" constant="176" id="CTX-Km-42f"/>
+                            <constraint firstItem="n0P-J4-xJl" firstAttribute="trailing" secondItem="d91-W1-8IQ" secondAttribute="trailing" constant="168" id="FDH-Cz-I40"/>
+                            <constraint firstItem="nTh-Na-ykM" firstAttribute="top" secondItem="gU9-UN-KdD" secondAttribute="top" constant="360" id="Qc2-6q-2eo"/>
+                            <constraint firstItem="5fT-JJ-2L6" firstAttribute="leading" secondItem="hBN-24-N68" secondAttribute="leading" id="RAN-Rw-aCZ"/>
+                            <constraint firstItem="n0P-J4-xJl" firstAttribute="trailing" secondItem="k77-gY-L2K" secondAttribute="trailing" constant="144" id="STd-3f-qca"/>
+                            <constraint firstItem="k77-gY-L2K" firstAttribute="leading" secondItem="n0P-J4-xJl" secondAttribute="leading" constant="192" id="Scr-uG-bPa"/>
+                            <constraint firstItem="5fT-JJ-2L6" firstAttribute="trailing" secondItem="hBN-24-N68" secondAttribute="trailing" constant="-1" id="TWK-sd-05P"/>
+                            <constraint firstItem="n0P-J4-xJl" firstAttribute="trailing" secondItem="GoG-tC-BiQ" secondAttribute="trailing" constant="258" id="Vei-8a-J6h"/>
+                            <constraint firstItem="d91-W1-8IQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n0P-J4-xJl" secondAttribute="leading" id="Xb1-07-FGk"/>
+                            <constraint firstItem="GoG-tC-BiQ" firstAttribute="top" secondItem="nTh-Na-ykM" secondAttribute="bottom" constant="16" id="XkV-X6-5pL"/>
+                            <constraint firstItem="nTh-Na-ykM" firstAttribute="leading" secondItem="n0P-J4-xJl" secondAttribute="leading" constant="29" id="d93-hX-ng5"/>
+                            <constraint firstItem="GoG-tC-BiQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n0P-J4-xJl" secondAttribute="leading" id="fYh-zr-ZNb"/>
+                            <constraint firstItem="nTh-Na-ykM" firstAttribute="top" secondItem="5fT-JJ-2L6" secondAttribute="bottom" constant="60" id="gSP-Kj-yMl"/>
+                            <constraint firstItem="5fT-JJ-2L6" firstAttribute="centerX" secondItem="gU9-UN-KdD" secondAttribute="centerX" id="hkE-lA-YgW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="n0P-J4-xJl"/>
                     </view>
                     <navigationItem key="navigationItem" id="vPO-BV-2nl"/>
@@ -129,22 +143,22 @@
             <objects>
                 <viewController id="LRi-rJ-ydT" customClass="RoomListView" customModule="CCMesseage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fDy-xI-2we">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0fy-zv-Nld">
-                                <rect key="frame" x="20" y="100" width="374" height="728"/>
+                                <rect key="frame" x="20" y="188" width="374" height="694"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="message_cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="room_cell" id="DMI-aa-aBE" customClass="RoomListCell" customModule="CCMesseage" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DMI-aa-aBE" id="L25-Ni-1b9">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gV-Io-uWV">
-                                                    <rect key="frame" x="40" y="16" width="294" height="21.5"/>
+                                                    <rect key="frame" x="40" y="16" width="294" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -159,13 +173,12 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="RoomName" destination="2gV-Io-uWV" id="t5X-A6-fWj"/>
-                                            <segue destination="dDd-0a-qY1" kind="show" identifier="showMessage" id="d4c-uJ-SQM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smd-yy-LkP">
-                                <rect key="frame" x="344" y="20" width="50" height="50"/>
+                                <rect key="frame" x="344" y="108" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="l5Y-SE-eo4"/>
                                 </constraints>
@@ -204,7 +217,7 @@
             <objects>
                 <viewController id="dDd-0a-qY1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tm3-Di-ANK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="f0R-T7-qRH"/>
@@ -238,6 +251,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="55R-SK-D3G"/>
+        <segue reference="9bc-E6-l9l"/>
     </inferredMetricsTieBreakers>
 </document>
