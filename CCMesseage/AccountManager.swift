@@ -25,17 +25,16 @@ class AccountManager {
         onRegister: @escaping (AuthResult)->(),
         onLogin: @escaping (AuthResult)->()
     ){
-        let db = Firestore.firestore()
+        let db  = Firestore.firestore()
         var ref : DocumentReference? = nil
         Auth.auth().createUser(withEmail: account, password: password) {
             authResult, error in
             ref = db.collection("users").document((authResult?.user.uid)!)
             ref?.setData([
-                "name":"test",
+                "name":"Not set",
                 "rooms":[]
-            ]){
-                error in
-            }
+            ])
+            
             onRegister(AuthResult(auth: authResult,error: error))
         }
         if login {
@@ -51,13 +50,6 @@ class AccountManager {
                 guard let strongSelf = self else { return }
                 completion(AuthResult(auth: authResult, error: error))
             }
-    }
-    func initProfile(completion: @escaping ()->()){
-        let db = Firestore.firestore()
-        var ref : DocumentReference? = nil
-        if let user = Auth.auth().currentUser{
-            
-        }
     }
     func loginAnonymous(
         completion: @escaping (AuthResult)->()){

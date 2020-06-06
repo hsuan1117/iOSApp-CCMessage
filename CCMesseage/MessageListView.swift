@@ -9,11 +9,8 @@
 import UIKit
 import MessengerKit
 
-var messages : [Message] = []
 class MessageListView: MSGMessengerViewController {
-    
     let steve = RoomUser(displayName: "Steve", avatar: UIImage(named: "test"), avatarUrl: nil, isSender: true)
-    
     let tim = RoomUser(displayName: "Tim",avatar: UIImage(named: "test"), avatarUrl: nil, isSender: false)
     
     lazy var messages: [[MSGMessage]] = {
@@ -34,6 +31,8 @@ class MessageListView: MSGMessengerViewController {
         delegate   = self
     }
 }
+
+// MARK: - MSGDataSource
 
 extension MessageListView: MSGDataSource {
     

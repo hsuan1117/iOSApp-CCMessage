@@ -21,6 +21,7 @@
 		3FE05ADC2424537800066443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE05ADB2424537800066443 /* Assets.xcassets */; };
 		3FE05ADF2424537800066443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE05ADD2424537800066443 /* LaunchScreen.storyboard */; };
 		73C0065F0AC02187CCE205D5 /* Pods_CCMesseage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B124EDD5243CF2A64B91F4 /* Pods_CCMesseage.framework */; };
+		F1CC937B248BFA74007981B2 /* AddRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC937A248BFA74007981B2 /* AddRoomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		470EE4D31016A8C721832C12 /* Pods-CCMesseage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMesseage.release.xcconfig"; path = "Target Support Files/Pods-CCMesseage/Pods-CCMesseage.release.xcconfig"; sourceTree = "<group>"; };
 		7E556DA870BF3A2FBF4216BD /* Pods-CCMesseage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMesseage.debug.xcconfig"; path = "Target Support Files/Pods-CCMesseage/Pods-CCMesseage.debug.xcconfig"; sourceTree = "<group>"; };
 		F1B124EDD5243CF2A64B91F4 /* Pods_CCMesseage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCMesseage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1CC937A248BFA74007981B2 /* AddRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddRoomView.swift; path = "/Users/hsuan1117/Desktop/iOSApp-CCMessage/CCMesseage/AddRoomView.swift"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		3FE05AD12424537100066443 /* CCMesseage */ = {
 			isa = PBXGroup;
 			children = (
+				F1CC937A248BFA74007981B2 /* AddRoomView.swift */,
 				3FE05AD22424537100066443 /* AppDelegate.swift */,
 				3F2C5C7A242D83D9006A62CC /* Home.swift */,
 				3FE05AD42424537100066443 /* SceneDelegate.swift */,
@@ -258,6 +261,7 @@
 				3F2C5C7B242D83D9006A62CC /* Home.swift in Sources */,
 				3FE05AD32424537100066443 /* AppDelegate.swift in Sources */,
 				3FABA12A2489D1E400E44D9A /* MessageListView.swift in Sources */,
+				F1CC937B248BFA74007981B2 /* AddRoomView.swift in Sources */,
 				3FE05AD52424537100066443 /* SceneDelegate.swift in Sources */,
 				3F801F03244931D700DA268C /* AccountView.swift in Sources */,
 				3FABA1282489CA3F00E44D9A /* RoomListCell.swift in Sources */,
@@ -408,6 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CCMesseage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,6 +431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CCMesseage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

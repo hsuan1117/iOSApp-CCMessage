@@ -17,8 +17,9 @@ struct Message {
 }
 
 struct Room {
-    var name    : String
-    var id      : String
+    var name        : String
+    var id          : String
+    var participant : [String]
 }
 
 struct RoomUser : MSGUser {
@@ -30,20 +31,27 @@ struct RoomUser : MSGUser {
 
 class MessageManager {
     var Messages = [Message]()
+    let uid = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
-    var ref : DocumentReference? = nil
     
     func getMessageRoom(){
         
         
     }
-    func addRoom(with:String,name:String){
-        ref = db.collection("/room").addDocument(data: [
-            "people":with,
+    func addRoom(with:[String],name:String){
+        var ref : DocumentReference? = nil
+        var participant = with
+        participant.append(uid!)
+        ref = db.collection("rooms").addDocument(data: [
+            "participant":participant,
             "name":name
-        ]){
-            _ in
-        }
+        ])
+        let roomID = ref!.documentID
+        
+        ref = db.collection("users").document(uid!)
+        ref?.updateData([
+            "rooms":FieldValue.arrayUnion([roomID])
+        ])
     }
     
     init(){

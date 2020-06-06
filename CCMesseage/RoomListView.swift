@@ -39,7 +39,7 @@ class RoomListView: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let pLayer = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
         pLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
         self.view.addSubview(pLayer)
-        RoomList.append(Room(name: "Microsoft", id: "123"))
+        RoomList.append(Room(name: "Microsoft", id: "123", participant: []))
         ACM.onAuthInit(completion: {
             result in
             if result.user == nil {
