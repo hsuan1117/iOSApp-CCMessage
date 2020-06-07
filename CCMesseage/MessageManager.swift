@@ -34,27 +34,64 @@ class MessageManager {
     let uid = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
     
-    func getMessageRoom(){
+    func addMessage(id:String,message:String){
+        var ref : DocumentReference? = nil
         
-        
+        ref = db.collection("messages").addDocument(data: [
+            "content":message,
+            "sender":uid!,
+            "timestamp":Date().unixTimestamp
+        ]){ error in
+            let messageID = ref!.documentID
+            ref = self.db.collection("rooms").document(id)
+            ref?.updateData([
+                "messages":FieldValue.arrayUnion([messageID])
+            ]){ error in
+                
+            }
+        }
     }
-    func addRoom(with:[String],name:String){
+    
+    
+    func addRoom(with:[String],name:String,completion:@escaping ()->()){
         var ref : DocumentReference? = nil
         var participant = with
         participant.append(uid!)
         ref = db.collection("rooms").addDocument(data: [
+            "messages":[],
             "participant":participant,
             "name":name
-        ])
-        let roomID = ref!.documentID
-        
-        ref = db.collection("users").document(uid!)
-        ref?.updateData([
-            "rooms":FieldValue.arrayUnion([roomID])
-        ])
+        ]){ error in
+            let roomID = ref!.documentID
+            ref = self.db.collection("users").document(self.uid!)
+            ref?.updateData([
+                "rooms":FieldValue.arrayUnion([roomID])
+            ]){ error in
+                completion()
+            }
+        }
     }
-    
+    func deleteRoom(id:String,completion:@escaping ()->()){
+        var ref : DocumentReference? = nil
+        
+        ref = db.collection("rooms").document(id)
+        ref!.delete() { error in
+            ref = self.db.collection("users").document(self.uid!)
+            ref?.updateData([
+                "rooms":FieldValue.arrayRemove([id])
+            ]){ error in
+                completion()
+            }
+        }
+    }
     init(){
        
     }
 }
+
+// MARK: - Database Structure
+/**
+ * users
+ *   -
+ *
+ */

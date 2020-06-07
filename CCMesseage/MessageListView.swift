@@ -8,28 +8,132 @@
 
 import UIKit
 import MessengerKit
+import Firebase
 
 class MessageListView: MSGMessengerViewController {
+    let db = Firestore.firestore()
+    var roomID : String = ""
+    var roomName : String = ""
+    var participant : Array<String> = []
+    var uids        : Dictionary<String,String> = [:]
     let steve = RoomUser(displayName: "Steve", avatar: UIImage(named: "test"), avatarUrl: nil, isSender: true)
     let tim = RoomUser(displayName: "Tim",avatar: UIImage(named: "test"), avatarUrl: nil, isSender: false)
-    
+    var MM = MessageManager()
     lazy var messages: [[MSGMessage]] = {
-        return [
-            [
-                MSGMessage(id: 1, body: .emoji("🐙💦🔫"), user: tim, sentAt: Date()),
-            ],
-            [
-                MSGMessage(id: 2, body: .text("Yeah sure, gimme 5"), user: steve, sentAt: Date()),
-                MSGMessage(id: 3, body: .text("Okay ready when you are"), user: steve, sentAt: Date())
-            ]
-        ]
+        return []
     }()
+    override func inputViewPrimaryActionTriggered(inputView: MSGInputView){
+        MM.addMessage(id: roomID, message: inputView.message)
+        /*self.messages.append([MSGMessage(
+        id: 12312,
+        body: .text(inputView.message),
+        user: self.steve,
+        sentAt: Date())])
+        */
+        //self.collectionView.reloadData()
+    }
+    private func getMessages(id : String) {
+        
+        db.collection("rooms")
+          .document(id)
+          .addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            guard let data = document.data() else {
+                print("Document data was empty.")
+                return
+            }
+            for msg in (data["messages"] as! Array<String>) {
+                let ref = self.db.collection("messages").document(msg)
+                self.messages = []
+                ref.getDocument{ (doc,error) in
+                    print(msg)
+                    if doc == nil {
+                        return
+                    }
+                    self.messages.append(
+                        [MSGMessage(
+                            id: Int.random(in: self.messages.count ... 99999),
+                            body: .text("\(doc?["content"] as! String)"),
+                            user: RoomUser(displayName: self.uids[doc?["sender"] as! String]!, avatar: UIImage(named: "test"), avatarUrl: nil, isSender: true),
+                            sentAt: Date(unixTimestamp: doc?["timestamp"] as! Double)
+                        )]
+                    )
+                    
+                    self.collectionView.reloadData()
+                    
+                    self.collectionView.scrollToBottom(animated: true)
+                    self.collectionView.layoutTypingLabelIfNeeded()
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Message"
+        title = roomName
+        //MM.addMessage(id: roomID, message: "Hi")
+        getMessages(id: roomID)
         dataSource = self
         delegate   = self
+        for user in participant {
+            db.collection("users").document(user).getDocument(completion: {
+                (doc,error) in
+                self.uids[user] = doc!["name"] as! String
+            })
+        }
     }
+    /*
+    override func insert(_ message: MSGMessage) {
+            
+        collectionView.performBatchUpdates({
+            if let lastSection = self.messages.last, let lastMessage = lastSection.last, lastMessage.user.displayName == message.user.displayName {
+                self.messages[self.messages.count - 1].append(message)
+                
+                let sectionIndex = self.messages.count - 1
+                let itemIndex = self.messages[sectionIndex].count - 1
+                self.collectionView.insertItems(at: [IndexPath(item: itemIndex, section: sectionIndex)])
+                
+            } else {
+                self.messages.append([message])
+                let sectionIndex = self.messages.count - 1
+                self.collectionView.insertSections([sectionIndex])
+            }
+        }, completion: { (_) in
+            self.collectionView.scrollToBottom(animated: true)
+            self.collectionView.layoutTypingLabelIfNeeded()
+        })
+        
+    }
+
+    override func insert(_ messages: [MSGMessage], callback: (() -> Void)? = nil) {
+        
+        collectionView.performBatchUpdates({
+            for message in messages {
+                if let lastSection = self.messages.last, let lastMessage = lastSection.last, lastMessage.user.displayName == message.user.displayName {
+                    self.messages[self.messages.count - 1].append(message)
+                    
+                    let sectionIndex = self.messages.count - 1
+                    let itemIndex = self.messages[sectionIndex].count - 1
+                    self.collectionView.insertItems(at: [IndexPath(item: itemIndex, section: sectionIndex)])
+                    
+                } else {
+                    self.messages.append([message])
+                    let sectionIndex = self.messages.count - 1
+                    self.collectionView.insertSections([sectionIndex])
+                }
+            }
+        }, completion: { (_) in
+            self.collectionView.scrollToBottom(animated: false)
+            self.collectionView.layoutTypingLabelIfNeeded()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                callback?()
+            }
+        })
+        
+    }*/
 }
 
 // MARK: - MSGDataSource
