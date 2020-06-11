@@ -15,6 +15,7 @@ class MessageListView: MSGMessengerViewController {
     var roomID : String = ""
     var roomName : String = ""
     var participant : Array<String> = []
+    var msgID       : Dictionary<Int,String>    = [:]
     var uids        : Dictionary<String,String> = [:]
     let steve = RoomUser(displayName: "Steve", avatar: UIImage(named: "test"), avatarUrl: nil, isSender: true)
     let tim = RoomUser(displayName: "Tim",avatar: UIImage(named: "test"), avatarUrl: nil, isSender: false)
@@ -24,13 +25,6 @@ class MessageListView: MSGMessengerViewController {
     }()
     override func inputViewPrimaryActionTriggered(inputView: MSGInputView){
         MM.addMessage(id: roomID, message: inputView.message)
-        /*self.messages.append([MSGMessage(
-        id: 12312,
-        body: .text(inputView.message),
-        user: self.steve,
-        sentAt: Date())])
-        */
-        //self.collectionView.reloadData()
     }
     private func getMessages(id : String) {
         
@@ -53,11 +47,13 @@ class MessageListView: MSGMessengerViewController {
                     if doc == nil {
                         return
                     }
+                    let __ = Int(Date().unixTimestamp)
+                    self.msgID[__] = msg
                     self.messages.append(
                         [MSGMessage(
-                            id: Int.random(in: self.messages.count ... 99999),
+                            id: __,
                             body: .text("\(doc?["content"] as! String)"),
-                            user: RoomUser(displayName: self.uids[doc?["sender"] as! String]!, avatar: UIImage(named: "test"), avatarUrl: nil, isSender: true),
+                            user: RoomUser(displayName: self.uids[doc?["sender"] as! String]!, avatar: UIImage(named: "test"), avatarUrl: nil, isSender: (doc?["sender"] as! String == Auth.auth().currentUser?.uid ? true : false)),
                             sentAt: Date(unixTimestamp: doc?["timestamp"] as! Double)
                         )]
                     )
@@ -85,7 +81,6 @@ class MessageListView: MSGMessengerViewController {
             })
         }
     }
-    /*
     override func insert(_ message: MSGMessage) {
             
         collectionView.performBatchUpdates({
@@ -133,7 +128,7 @@ class MessageListView: MSGMessengerViewController {
             }
         })
         
-    }*/
+    }
 }
 
 // MARK: - MSGDataSource
@@ -149,11 +144,19 @@ extension MessageListView: MSGDataSource {
     }
     
     func message(for indexPath: IndexPath) -> MSGMessage {
+        messages.sort(by: {
+            (m1,m2) in
+            if(m1[0].sentAt < m2[0].sentAt){
+                return true
+            }else{
+                return false
+            }
+        })
         return messages[indexPath.section][indexPath.item]
     }
     
     func footerTitle(for section: Int) -> String? {
-        return "Just now"
+        return messages[section][0].sentAt.timeString()
     }
     
     func headerTitle(for section: Int) -> String? {
@@ -176,10 +179,25 @@ extension MessageListView: MSGDelegate {
     
     func tapReceived(for message: MSGMessage) {
         print("Tapped: ", message)
+        
     }
     
     func longPressReceieved(for message: MSGMessage) {
         print("Long press:", message)
+        let deleteConfirm = UIAlertController(title: "刪除訊息？", message: "您確定要刪除此訊息嗎？", preferredStyle: .alert)
+
+        deleteConfirm.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            self.MM.deleteMessage(id: self.msgID[message.id]!, roomID: self.roomID, completion: {
+                self.showAlert(title: "OK", message: "刪除完成")
+                self.collectionView.reloadData()
+            })
+        }))
+
+        deleteConfirm.addAction(UIAlertAction(title: "Nope", style: .cancel, handler: { (action: UIAlertAction!) in
+              
+        }))
+
+        present(deleteConfirm, animated: true, completion: nil)
     }
     
     func shouldDisplaySafari(for url: URL) -> Bool {

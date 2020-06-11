@@ -51,7 +51,18 @@ class MessageManager {
             }
         }
     }
-    
+    func deleteMessage(id:String,roomID:String,completion:@escaping ()->()){
+        var ref : DocumentReference? = nil
+        ref = db.collection("messages").document(id)
+        ref!.delete() { error in
+            ref = self.db.collection("rooms").document(roomID)
+            ref?.updateData([
+                "messages":FieldValue.arrayRemove([id])
+            ]){ error in
+                completion()
+            }
+        }
+    }
     
     func addRoom(with:[String],name:String,completion:@escaping ()->()){
         var ref : DocumentReference? = nil

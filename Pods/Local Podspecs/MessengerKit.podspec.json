@@ -19,9 +19,10 @@
   "platforms": {
     "ios": "10.0"
   },
-  "swift_version": "4.2",
+  "swift_versions": "4.2",
   "source_files": [
     "MessengerKit/**/*.{h,m,swift}"
   ],
-  "resources": "MessengerKit/**/*.{xcassets,xib,nib}"
+  "resources": "MessengerKit/**/*.{xcassets,xib,nib}",
+  "swift_version": "4.2"
 }
