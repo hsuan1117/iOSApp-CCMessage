@@ -16,7 +16,7 @@ class AddRoomView: UIViewController, UITableViewDelegate,UITableViewDataSource {
             
             do {
                 try participant.append(Array(users.keys)[UserListTable.indexPathForSelectedRow!.row])
-            } catch Error {
+            } catch is Error {
                 
             }
             MM.addRoom(with: participant, name: NewRoomName.text!,completion: {
