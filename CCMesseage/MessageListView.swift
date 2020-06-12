@@ -17,8 +17,7 @@ class MessageListView: MSGMessengerViewController {
     var participant : Array<String> = []
     var msgID       : Dictionary<Int,String>    = [:]
     var uids        : Dictionary<String,String> = [:]
-    let steve = RoomUser(displayName: "Steve", avatar: UIImage(named: "test"), avatarUrl: nil, isSender: true)
-    let tim = RoomUser(displayName: "Tim",avatar: UIImage(named: "test"), avatarUrl: nil, isSender: false)
+    
     var MM = MessageManager()
     lazy var messages: [[MSGMessage]] = {
         return []

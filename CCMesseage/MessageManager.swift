@@ -74,25 +74,39 @@ class MessageManager {
             "name":name
         ]){ error in
             let roomID = ref!.documentID
-            ref = self.db.collection("users").document(self.uid!)
-            ref?.updateData([
-                "rooms":FieldValue.arrayUnion([roomID])
-            ]){ error in
-                completion()
+            for x in participant {
+                ref = self.db.collection("users").document(x)
+                ref?.updateData([
+                    "rooms":FieldValue.arrayUnion([roomID])
+                ]){ error in
+                    if(participant.last == x){
+                        completion()
+                    }
+                }
             }
+            
         }
     }
     func deleteRoom(id:String,completion:@escaping ()->()){
         var ref : DocumentReference? = nil
-        
+        var participant : Array<String> = []
         ref = db.collection("rooms").document(id)
+        ref?.getDocument(completion: {
+            (r,error) in
+            participant = r!["participant"] as! Array<String>
+        })
         ref!.delete() { error in
-            ref = self.db.collection("users").document(self.uid!)
-            ref?.updateData([
-                "rooms":FieldValue.arrayRemove([id])
-            ]){ error in
-                completion()
+            for x in participant {
+                ref = self.db.collection("users").document(x)
+                ref?.updateData([
+                    "rooms":FieldValue.arrayRemove([id])
+                ]){ error in
+                    if(participant.last == x){
+                        completion()
+                    }
+                }
             }
+            
         }
     }
     init(){
