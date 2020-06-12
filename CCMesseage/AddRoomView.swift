@@ -13,11 +13,8 @@ class AddRoomView: UIViewController, UITableViewDelegate,UITableViewDataSource {
             showAlert(title: "Error", message: "Please Input the new room name")
         }else{
             var participant : Array<String> = []
-            
-            do {
-                try participant.append(Array(users.keys)[UserListTable.indexPathForSelectedRow!.row])
-            } catch is Error {
-                
+            if UserListTable.indexPathForSelectedRow != nil {
+                participant.append(Array(users.keys)[UserListTable.indexPathForSelectedRow!.row])
             }
             MM.addRoom(with: participant, name: NewRoomName.text!,completion: {
                 self.showAlert(title: "Status", message: "OK! Room \(self.NewRoomName.text!) created successfully")
