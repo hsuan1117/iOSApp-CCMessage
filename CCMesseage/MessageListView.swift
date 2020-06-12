@@ -48,6 +48,8 @@ class MessageListView: MSGMessengerViewController {
                     }
                     let __ = Int(Date().unixTimestamp)
                     self.msgID[__] = msg
+                    print(self.participant)
+                    print(self.uids)
                     self.messages.append(
                         [MSGMessage(
                             id: __,
@@ -61,6 +63,7 @@ class MessageListView: MSGMessengerViewController {
                     
                     self.collectionView.scrollToBottom(animated: true)
                     self.collectionView.layoutTypingLabelIfNeeded()
+                    
                 }
             }
         }
@@ -70,15 +73,29 @@ class MessageListView: MSGMessengerViewController {
         super.viewDidLoad()
         title = roomName
         //MM.addMessage(id: roomID, message: "Hi")
-        getMessages(id: roomID)
         dataSource = self
         delegate   = self
+        let activity = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        activity.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+        activity.isHidden = false
+        activity.startAnimating()
+        self.collectionView.addSubview(activity)
+        
         for user in participant {
             db.collection("users").document(user).getDocument(completion: {
                 (doc,error) in
-                self.uids[user] = doc!["name"] as! String
+                self.uids[user] = doc!["name"] as! String;
+                if user == self.participant.last {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1*Double(self.participant.count)) {
+                            self.getMessages(id: self.roomID)
+                        activity.isHidden = true
+                    }
+                }
+                
             })
+            
         }
+        
     }
     override func insert(_ message: MSGMessage) {
             
