@@ -35,7 +35,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Bhq-Ej-g6P" kind="show" id="DiE-FN-fgK"/>
+                                    <segue destination="Bhq-Ej-g6P" kind="show" id="vLB-MI-Xth"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,7 +58,7 @@
         <!--Account View-->
         <scene sceneID="JqD-07-m3k">
             <objects>
-                <viewController id="Bhq-Ej-g6P" customClass="AccountView" customModule="CCMesseage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountManageView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bhq-Ej-g6P" customClass="AccountView" customModule="CCMesseage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gU9-UN-KdD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,29 +94,19 @@
                                     <action selector="OnLogoutClick:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="WeI-z1-dCu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d91-W1-8IQ">
-                                <rect key="frame" x="184" y="601" width="62" height="30"/>
-                                <state key="normal" title="匿名登入"/>
-                                <connections>
-                                    <action selector="OnclickAnonymous:" destination="Bhq-Ej-g6P" eventType="touchDown" id="p0b-L6-5aV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="5fT-JJ-2L6" firstAttribute="top" secondItem="hBN-24-N68" secondAttribute="bottom" constant="47" id="24w-Sa-7EC"/>
                             <constraint firstItem="5fT-JJ-2L6" firstAttribute="leading" secondItem="n0P-J4-xJl" secondAttribute="leading" constant="103" id="2bG-Yc-ZvG"/>
-                            <constraint firstItem="d91-W1-8IQ" firstAttribute="top" secondItem="k77-gY-L2K" secondAttribute="bottom" constant="96" id="8gQ-1y-AJm"/>
                             <constraint firstAttribute="bottom" secondItem="k77-gY-L2K" secondAttribute="bottom" constant="337" id="BN0-eW-HAz"/>
                             <constraint firstItem="n0P-J4-xJl" firstAttribute="trailing" secondItem="nTh-Na-ykM" secondAttribute="trailing" constant="176" id="CTX-Km-42f"/>
-                            <constraint firstItem="n0P-J4-xJl" firstAttribute="trailing" secondItem="d91-W1-8IQ" secondAttribute="trailing" constant="168" id="FDH-Cz-I40"/>
                             <constraint firstItem="nTh-Na-ykM" firstAttribute="top" secondItem="gU9-UN-KdD" secondAttribute="top" constant="360" id="Qc2-6q-2eo"/>
                             <constraint firstItem="5fT-JJ-2L6" firstAttribute="leading" secondItem="hBN-24-N68" secondAttribute="leading" id="RAN-Rw-aCZ"/>
                             <constraint firstItem="n0P-J4-xJl" firstAttribute="trailing" secondItem="k77-gY-L2K" secondAttribute="trailing" constant="144" id="STd-3f-qca"/>
                             <constraint firstItem="k77-gY-L2K" firstAttribute="leading" secondItem="n0P-J4-xJl" secondAttribute="leading" constant="192" id="Scr-uG-bPa"/>
                             <constraint firstItem="5fT-JJ-2L6" firstAttribute="trailing" secondItem="hBN-24-N68" secondAttribute="trailing" constant="-1" id="TWK-sd-05P"/>
                             <constraint firstItem="n0P-J4-xJl" firstAttribute="trailing" secondItem="GoG-tC-BiQ" secondAttribute="trailing" constant="258" id="Vei-8a-J6h"/>
-                            <constraint firstItem="d91-W1-8IQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n0P-J4-xJl" secondAttribute="leading" id="Xb1-07-FGk"/>
                             <constraint firstItem="GoG-tC-BiQ" firstAttribute="top" secondItem="nTh-Na-ykM" secondAttribute="bottom" constant="16" id="XkV-X6-5pL"/>
                             <constraint firstItem="nTh-Na-ykM" firstAttribute="leading" secondItem="n0P-J4-xJl" secondAttribute="leading" constant="29" id="d93-hX-ng5"/>
                             <constraint firstItem="GoG-tC-BiQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n0P-J4-xJl" secondAttribute="leading" id="fYh-zr-ZNb"/>
@@ -127,7 +117,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="vPO-BV-2nl"/>
                     <connections>
-                        <outlet property="btnAnonymous" destination="d91-W1-8IQ" id="Qr5-oC-oEc"/>
                         <outlet property="btnLogin" destination="nTh-Na-ykM" id="qJ5-YC-uqO"/>
                         <outlet property="btnRegister" destination="GoG-tC-BiQ" id="372-wz-LUd"/>
                         <outlet property="inputAccount" destination="hBN-24-N68" id="aZU-yq-iu6"/>
@@ -136,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gv0-4n-uyU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11904.347826086958" y="762.05357142857144"/>
+            <point key="canvasLocation" x="-11904" y="769"/>
         </scene>
         <!--Room List View-->
         <scene sceneID="7Wm-fi-aMp">
@@ -151,14 +140,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="message_cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="room_cell" id="DMI-aa-aBE" customClass="RoomListCell" customModule="CCMesseage" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="53"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="53.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DMI-aa-aBE" id="L25-Ni-1b9">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gV-Io-uWV">
-                                                    <rect key="frame" x="40" y="16" width="294" height="21"/>
+                                                    <rect key="frame" x="40" y="16" width="294" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

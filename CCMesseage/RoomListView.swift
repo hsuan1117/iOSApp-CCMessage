@@ -38,7 +38,7 @@ class RoomListView: UIViewController {
                     }
                     self.RoomList.append(
                         Room(
-                            name: doc!["name"] as! String,
+                            name: doc?["name"] as? String ?? "",
                             id: room,
                             participant: doc!["participant"] as! Array<String>
                         )

@@ -9,19 +9,7 @@ class AccountView: UIViewController {
     
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var btnLogin: UIButton!
-    @IBOutlet weak var btnAnonymous: UIButton!
     
-    @IBAction func OnclickAnonymous(_ sender: Any) {
-        ACM.loginAnonymous(completion: {
-            result in
-            if result.error != nil{
-                self.showAlert(title: "Error", message: result.error?.localizedDescription)
-            }
-            if result.auth != nil {
-                self.showAlert(title: "Succeed", message: "Login Succeed")
-            }
-        })
-    }
     @IBAction func OnclickRegister(_ sender: Any) {
         if inputAccount.isEmpty {
             showAlert(title: "警告", message: "帳號為空")
