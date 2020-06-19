@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 import SwifterSwift
 
 class AccountView: UIViewController {
@@ -9,6 +10,10 @@ class AccountView: UIViewController {
     
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnSettings: UIButton!
+    @IBOutlet weak var btnLogout: UIButton!
+    @IBOutlet weak var labelStatus: UILabel!
+    @IBOutlet weak var Loading: UIActivityIndicatorView!
     
     @IBAction func OnclickRegister(_ sender: Any) {
         if inputAccount.isEmpty {
@@ -54,26 +59,37 @@ class AccountView: UIViewController {
             self.showAlert(title: "提示", message: "登出成功")
         })
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let pLayer = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
-        pLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.7)
-        self.view.addSubview(pLayer)
+        Loading.startAnimating()
         ACM.onAuthInit(completion: {
             result in
             if result.user == nil {
-                pLayer.isHidden = true
+                self.btnLogin.isHidden = false
+                self.btnRegister.isHidden = false
+                self.inputAccount.isHidden = false
+                self.inputPassword.isHidden = false
+                self.btnLogout.isHidden = true
+                self.btnSettings.isHidden = true
+                self.labelStatus.isHidden = true
+                self.Loading.stopAnimating()
             } else {
                //已登入
-                let alert = UIAlertController(title: "警告", message: "你已經登入", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {
-                    (UIAlertAction) in
-                    pLayer.isHidden = true
-                    //self.navigationController?.popToRootViewController(animated: true)
-                }))
-                self.present(alert, animated: true, completion: nil)
-                //self.navigationController?.popViewController(animated: true)
+                self.btnLogin.isHidden = true
+                self.btnRegister.isHidden = true
+                self.inputAccount.isHidden = true
+                self.inputPassword.isHidden = true
+                self.btnLogout.isHidden = false
+                self.btnSettings.isHidden = false
+                self.labelStatus.isHidden = false
+                let db = Firestore.firestore()
+                db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(completion: {
+                    (snapshot,error) in
+                    self.labelStatus.text = "Hey, \(snapshot?["name"] as? String ?? "")"
+                    
+                })
+                self.Loading.stopAnimating()
             }
         })
     }
