@@ -63,6 +63,10 @@ class AccountView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Loading.startAnimating()
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 3, delay: 0, animations: {
+            self.labelStatus.textColor = UIColor(named: "blue")
+        }, completion: nil)
+        
         ACM.onAuthInit(completion: {
             result in
             if result.user == nil {
@@ -87,7 +91,6 @@ class AccountView: UIViewController {
                 db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(completion: {
                     (snapshot,error) in
                     self.labelStatus.text = "Hey, \(snapshot?["name"] as? String ?? "")"
-                    
                 })
                 self.Loading.stopAnimating()
             }

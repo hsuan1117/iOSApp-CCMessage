@@ -112,7 +112,7 @@
                                             <action selector="OnclickRegister:" destination="Bhq-Ej-g6P" eventType="touchUpInside" id="D5s-TN-OFQ"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmI-cp-ud4">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😀😆🤣" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmI-cp-ud4">
                                         <rect key="frame" x="0.0" y="168" width="394" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -240,6 +240,9 @@
                                     <action selector="OnSaveClick:" destination="pWo-vM-nuI" eventType="touchUpInside" id="U8l-OU-g2H"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="9iN-H0-LKa">
+                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -252,7 +255,9 @@
                             <constraint firstItem="bcc-FR-XAv" firstAttribute="centerX" secondItem="PBA-dj-g0R" secondAttribute="centerX" id="UvB-fn-vrg"/>
                             <constraint firstItem="bcc-FR-XAv" firstAttribute="top" secondItem="b9o-6Z-Hph" secondAttribute="bottom" constant="27" id="W6A-rG-I1F"/>
                             <constraint firstItem="bcc-FR-XAv" firstAttribute="leading" secondItem="MCI-xi-Grh" secondAttribute="leading" constant="10" id="YlR-ER-vaQ"/>
+                            <constraint firstItem="9iN-H0-LKa" firstAttribute="centerY" secondItem="PBA-dj-g0R" secondAttribute="centerY" id="Zqh-4a-HS7"/>
                             <constraint firstItem="XSE-nl-KM2" firstAttribute="centerX" secondItem="bcc-FR-XAv" secondAttribute="centerX" id="naq-ze-NqL"/>
+                            <constraint firstItem="9iN-H0-LKa" firstAttribute="centerX" secondItem="PBA-dj-g0R" secondAttribute="centerX" id="uyX-GG-erv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MCI-xi-Grh"/>
                     </view>
@@ -260,6 +265,7 @@
                     <connections>
                         <outlet property="AccountID" destination="gVD-bK-Zx3" id="jVQ-lA-e1V"/>
                         <outlet property="AccountName" destination="k2N-So-pjf" id="rQd-lS-5ug"/>
+                        <outlet property="Loading" destination="9iN-H0-LKa" id="SOi-JE-gaF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bV-BC-HvO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

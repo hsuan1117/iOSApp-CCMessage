@@ -8,10 +8,13 @@
 
 import UIKit
 import SwifterSwift
+import FirebaseFirestore
+import FirebaseAuth
 class AccountSettingsView: UIViewController {
     
     @IBOutlet weak var AccountID: UILabel!
     @IBOutlet weak var AccountName: UITextField!
+    @IBOutlet weak var Loading: UIActivityIndicatorView!
     
     let ACM = AccountManager();
     
@@ -26,9 +29,15 @@ class AccountSettingsView: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Loading.startAnimating()
         ACM.onAuthInit(completion: {
             AuthResult in
+            let db = Firestore.firestore()
+            db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(completion: {
+                (snapshot,error) in
+                self.AccountName.text = snapshot?["name"] as? String ?? ""
+                self.Loading.stopAnimating()
+            })
             self.AccountID.text = "Your ID : \(AuthResult.user?.uid ?? "")"
         })
     }
