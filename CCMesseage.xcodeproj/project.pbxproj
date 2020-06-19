@@ -10,6 +10,7 @@
 		3F2C5C77242D7E22006A62CC /* RoomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C5C76242D7E22006A62CC /* RoomListView.swift */; };
 		3F2C5C79242D8316006A62CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F2C5C78242D8315006A62CC /* GoogleService-Info.plist */; };
 		3F2C5C7B242D83D9006A62CC /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C5C7A242D83D9006A62CC /* Home.swift */; };
+		3F49912E249C464000ED8E75 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F49912D249C464000ED8E75 /* AccountSettingsView.swift */; };
 		3F696DCB24809B46009F4FC0 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F696DCA24809B46009F4FC0 /* MessageManager.swift */; };
 		3F7F256F2493008A005E8978 /* AddRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F256E2493008A005E8978 /* AddRoomView.swift */; };
 		3F7F257124930DD3005E8978 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F257024930DD3005E8978 /* UserListCell.swift */; };
@@ -29,6 +30,7 @@
 		3F2C5C76242D7E22006A62CC /* RoomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListView.swift; sourceTree = "<group>"; };
 		3F2C5C78242D8315006A62CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3F2C5C7A242D83D9006A62CC /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3F49912D249C464000ED8E75 /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		3F696DCA24809B46009F4FC0 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		3F7F256E2493008A005E8978 /* AddRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRoomView.swift; sourceTree = "<group>"; };
 		3F7F257024930DD3005E8978 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				3FE05AD42424537100066443 /* SceneDelegate.swift */,
 				3F801F082449420300DA268C /* AccountManager.swift */,
 				3FE05AD82424537100066443 /* Main.storyboard */,
+				3F49912D249C464000ED8E75 /* AccountSettingsView.swift */,
 				3FABA1272489CA3F00E44D9A /* RoomListCell.swift */,
 				3F801F02244931D600DA268C /* AccountView.swift */,
 				3F2C5C78242D8315006A62CC /* GoogleService-Info.plist */,
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F2C5C77242D7E22006A62CC /* RoomListView.swift in Sources */,
+				3F49912E249C464000ED8E75 /* AccountSettingsView.swift in Sources */,
 				3F801F092449420300DA268C /* AccountManager.swift in Sources */,
 				3F7F256F2493008A005E8978 /* AddRoomView.swift in Sources */,
 				3F2C5C7B242D83D9006A62CC /* Home.swift in Sources */,

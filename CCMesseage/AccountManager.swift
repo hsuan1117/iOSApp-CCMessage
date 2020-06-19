@@ -31,7 +31,7 @@ class AccountManager {
             authResult, error in
             ref = db.collection("users").document((authResult?.user.uid)!)
             ref?.setData([
-                "name":"Not set",
+                "name":account.split(separator: "@")[0],
                 "rooms":[]
             ])
             
