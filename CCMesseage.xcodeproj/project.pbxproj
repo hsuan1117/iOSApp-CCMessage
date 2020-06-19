@@ -24,6 +24,7 @@
 		3FE05ADC2424537800066443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE05ADB2424537800066443 /* Assets.xcassets */; };
 		3FE05ADF2424537800066443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE05ADD2424537800066443 /* LaunchScreen.storyboard */; };
 		73C0065F0AC02187CCE205D5 /* Pods_CCMesseage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B124EDD5243CF2A64B91F4 /* Pods_CCMesseage.framework */; };
+		F1A31424249D242400D11CA9 /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A31423249D242400D11CA9 /* MusicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		3FE05AE02424537800066443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		470EE4D31016A8C721832C12 /* Pods-CCMesseage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMesseage.release.xcconfig"; path = "Target Support Files/Pods-CCMesseage/Pods-CCMesseage.release.xcconfig"; sourceTree = "<group>"; };
 		7E556DA870BF3A2FBF4216BD /* Pods-CCMesseage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMesseage.debug.xcconfig"; path = "Target Support Files/Pods-CCMesseage/Pods-CCMesseage.debug.xcconfig"; sourceTree = "<group>"; };
+		F1A31423249D242400D11CA9 /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
 		F1B124EDD5243CF2A64B91F4 /* Pods_CCMesseage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCMesseage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 				3FE05AD42424537100066443 /* SceneDelegate.swift */,
 				3F801F082449420300DA268C /* AccountManager.swift */,
 				3FE05AD82424537100066443 /* Main.storyboard */,
+				F1A31423249D242400D11CA9 /* MusicView.swift */,
 				3F49912D249C464000ED8E75 /* AccountSettingsView.swift */,
 				3FABA1272489CA3F00E44D9A /* RoomListCell.swift */,
 				3F801F02244931D600DA268C /* AccountView.swift */,
@@ -246,6 +249,7 @@
 				3FABA12A2489D1E400E44D9A /* MessageListView.swift in Sources */,
 				3FE05AD52424537100066443 /* SceneDelegate.swift in Sources */,
 				3F7F257124930DD3005E8978 /* UserListCell.swift in Sources */,
+				F1A31424249D242400D11CA9 /* MusicView.swift in Sources */,
 				3F801F03244931D700DA268C /* AccountView.swift in Sources */,
 				3FABA1282489CA3F00E44D9A /* RoomListCell.swift in Sources */,
 				3F696DCB24809B46009F4FC0 /* MessageManager.swift in Sources */,
