@@ -51,6 +51,20 @@ class AccountManager {
                 completion(AuthResult(auth: authResult, error: error))
             }
     }
+    
+    func setName(account:String,completion:@escaping ()->()){
+        let db  = Firestore.firestore()
+        var ref : DocumentReference? = nil
+        ref = db.collection("users").document(Auth.auth().currentUser!.uid)
+        ref?.updateData([
+            "name":account
+        ]){
+            error in
+            completion()
+        }
+    }
+    
+    
     func loginAnonymous(
         completion: @escaping (AuthResult)->()){
             Auth.auth().signInAnonymously() { (authResult, error) in

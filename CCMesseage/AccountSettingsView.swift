@@ -7,24 +7,29 @@
 //
 
 import UIKit
-
+import SwifterSwift
 class AccountSettingsView: UIViewController {
-
+    
+    @IBOutlet weak var AccountID: UILabel!
+    @IBOutlet weak var AccountName: UITextField!
+    
+    let ACM = AccountManager();
+    
+    @IBAction func OnSaveClick(_ sender: Any) {
+        if AccountName.text == nil{
+            showAlert(title: "警告", message: "輸入名稱")
+            return;
+        }
+        ACM.setName(account: AccountName.text!, completion: {
+            self.showAlert(title: "狀態", message: "完成")
+        })
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        ACM.onAuthInit(completion: {
+            AuthResult in
+            self.AccountID.text = "Your ID : \(AuthResult.user?.uid ?? "")"
+        })
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

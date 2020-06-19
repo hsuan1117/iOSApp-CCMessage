@@ -33,7 +33,7 @@ class AddRoomView: UIViewController, UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(title: "選擇", message: "您選擇了\(users[Array(users.keys)[indexPath.row]])")
+        showAlert(title: "選擇", message: "您選擇了\(users[Array(users.keys)[indexPath.row]] ?? "")")
     }
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class AddRoomView: UIViewController, UITableViewDelegate,UITableViewDataSource {
             (snapshot,error) in
             for document in snapshot!.documents {
                 if(document.documentID != Auth.auth().currentUser?.uid ){
-                    self.users[document.documentID] = document.data()["name"] as! String
+                    self.users[document.documentID] = (document.data()["name"] as! String)
                 }
                 
             }
