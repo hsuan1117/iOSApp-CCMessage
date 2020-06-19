@@ -4,6 +4,7 @@ import SwifterSwift
 class AddRoomView: UIViewController, UITableViewDelegate,UITableViewDataSource {
     var MM = MessageManager()
     var users  : Dictionary<String,String> = [:]
+    var filteredUsers : Dictionary<String,String> = [:]
     let db = Firestore.firestore()
     
     @IBOutlet weak var UserListTable: UITableView!
@@ -14,7 +15,7 @@ class AddRoomView: UIViewController, UITableViewDelegate,UITableViewDataSource {
         }else{
             var participant : Array<String> = []
             if UserListTable.indexPathForSelectedRow != nil {
-                participant.append(Array(users.keys)[UserListTable.indexPathForSelectedRow!.row])
+                participant.append(Array(filteredUsers.keys)[UserListTable.indexPathForSelectedRow!.row])
             }
             MM.addRoom(with: participant, name: NewRoomName.text!,completion: {
                 self.showAlert(title: "Status", message: "OK! Room \(self.NewRoomName.text!) created successfully")
@@ -22,20 +23,21 @@ class AddRoomView: UIViewController, UITableViewDelegate,UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.keys.count
+        return filteredUsers.keys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UserListTable.dequeueReusableCell(withIdentifier: "user_cell") as! UserListCell
         print(users.keys)
-        cell.UserName.text = users[Array(users.keys)[indexPath.row]]
-        cell.UserUID.text  = Array(users.keys)[indexPath.row]
+        cell.UserName.text = filteredUsers[Array(filteredUsers.keys)[indexPath.row]]
+        cell.UserUID.text  = Array(filteredUsers.keys)[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(title: "選擇", message: "您選擇了\(users[Array(users.keys)[indexPath.row]] ?? "")")
+        showAlert(title: "選擇", message: "您選擇了\(filteredUsers[Array(filteredUsers.keys)[indexPath.row]] ?? "")")
     }
     
+    @IBOutlet weak var SearchController: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         db.collection("users").getDocuments(completion: {
@@ -44,13 +46,28 @@ class AddRoomView: UIViewController, UITableViewDelegate,UITableViewDataSource {
                 if(document.documentID != Auth.auth().currentUser?.uid ){
                     self.users[document.documentID] = (document.data()["name"] as! String)
                 }
-                
             }
+            self.filteredUsers = self.users
             self.UserListTable.reloadData()
-            print(self.users)
+            //print(self.users)
         })
         
         UserListTable.delegate = self
         UserListTable.dataSource = self
+        SearchController.delegate = self
+    }
+}
+extension AddRoomView : UISearchBarDelegate,UISearchControllerDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.searchTextField.text?.isEmpty == true{
+            self.filteredUsers = users
+        }else{
+            self.filteredUsers = self.users.filter({
+                return $0.key.lowercased().contains(searchBar.searchTextField.text!.lowercased()) || $0.value.lowercased().contains(searchBar.searchTextField.text!.lowercased())
+            })
+            UserListTable.reloadData()
+        }
     }
 }

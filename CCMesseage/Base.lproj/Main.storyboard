@@ -75,12 +75,12 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="帳號" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-24-N68">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fT-JJ-2L6">
                                         <rect key="frame" x="0.0" y="44" width="394" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTh-Na-ykM">
                                         <rect key="frame" x="0.0" y="88" width="394" height="30"/>
@@ -359,8 +359,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Gej-h2-nic">
-                                <rect key="frame" x="0.0" y="10" width="414" height="56"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="GMC-YL-WjR">
+                                <rect key="frame" x="0.0" y="10" width="414" height="76"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="esn-RB-bbl">
@@ -444,22 +444,24 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Gej-h2-nic" firstAttribute="leading" secondItem="f0R-T7-qRH" secondAttribute="leading" id="BAk-Mk-88b"/>
-                            <constraint firstItem="Gej-h2-nic" firstAttribute="trailing" secondItem="f0R-T7-qRH" secondAttribute="trailing" id="DsC-F3-yzs"/>
-                            <constraint firstItem="esn-RB-bbl" firstAttribute="top" secondItem="Gej-h2-nic" secondAttribute="bottom" constant="20" id="Q59-6s-w9O"/>
+                            <constraint firstItem="GMC-YL-WjR" firstAttribute="leading" secondItem="f0R-T7-qRH" secondAttribute="leading" id="DDn-gd-9YF"/>
+                            <constraint firstItem="GMC-YL-WjR" firstAttribute="top" secondItem="f0R-T7-qRH" secondAttribute="top" constant="10" id="FaB-5S-nhI"/>
                             <constraint firstItem="esn-RB-bbl" firstAttribute="leading" secondItem="aAo-rh-HSz" secondAttribute="leading" id="Rb3-nZ-z4i"/>
+                            <constraint firstItem="esn-RB-bbl" firstAttribute="trailing" secondItem="aAo-rh-HSz" secondAttribute="trailing" id="TaP-3W-ccm"/>
                             <constraint firstItem="aAo-rh-HSz" firstAttribute="top" secondItem="esn-RB-bbl" secondAttribute="bottom" constant="20" id="UqG-tX-ckm"/>
-                            <constraint firstItem="esn-RB-bbl" firstAttribute="centerX" secondItem="Gej-h2-nic" secondAttribute="centerX" id="WCX-Xc-5Gq"/>
                             <constraint firstItem="aAo-rh-HSz" firstAttribute="leading" secondItem="f0R-T7-qRH" secondAttribute="leading" constant="10" id="d0A-Nd-ins"/>
                             <constraint firstItem="f0R-T7-qRH" firstAttribute="bottom" secondItem="aAo-rh-HSz" secondAttribute="bottom" constant="10" id="dJP-7J-41E"/>
                             <constraint firstItem="f0R-T7-qRH" firstAttribute="trailing" secondItem="aAo-rh-HSz" secondAttribute="trailing" constant="10" id="fb0-lH-43l"/>
-                            <constraint firstItem="Gej-h2-nic" firstAttribute="top" secondItem="f0R-T7-qRH" secondAttribute="top" constant="10" id="iZP-b9-0ai"/>
+                            <constraint firstItem="esn-RB-bbl" firstAttribute="top" secondItem="f0R-T7-qRH" secondAttribute="top" constant="86" id="oq0-ph-nnE"/>
+                            <constraint firstItem="GMC-YL-WjR" firstAttribute="centerX" secondItem="esn-RB-bbl" secondAttribute="centerX" id="utW-n6-qDv"/>
+                            <constraint firstItem="esn-RB-bbl" firstAttribute="top" secondItem="GMC-YL-WjR" secondAttribute="bottom" id="vcb-0O-OJD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f0R-T7-qRH"/>
                     </view>
                     <navigationItem key="navigationItem" id="tXb-3I-s05"/>
                     <connections>
                         <outlet property="NewRoomName" destination="hyN-lK-bGD" id="fUY-pA-HUc"/>
+                        <outlet property="SearchController" destination="GMC-YL-WjR" id="J8x-gu-RlQ"/>
                         <outlet property="UserListTable" destination="esn-RB-bbl" id="zlY-s1-dvP"/>
                     </connections>
                 </viewController>
