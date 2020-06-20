@@ -187,6 +187,7 @@ extension MessageListView: MSGDelegate {
     
     func linkTapped(url: URL) {
         print("Link tapped:", url)
+        
     }
     
     func avatarTapped(for user: MSGUser) {
@@ -195,7 +196,13 @@ extension MessageListView: MSGDelegate {
     
     func tapReceived(for message: MSGMessage) {
         print("Tapped: ", message)
-        
+        if String((message.body.rawValue as! String ).first!) != "#" {
+            return
+        }
+        let vc = MusicView()
+        print( String((message.body.rawValue as! String ).split(separator: "#")[0]))
+        vc.YTID = String((message.body.rawValue as! String ).split(separator: "#")[0])
+        showDetailViewController(vc, sender: nil)
     }
     
     func longPressReceieved(for message: MSGMessage) {

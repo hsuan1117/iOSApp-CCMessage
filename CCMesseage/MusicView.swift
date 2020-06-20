@@ -7,16 +7,26 @@
 //
 
 import UIKit
-import AVFoundation
+import WebKit
 class MusicView: UIViewController {
-    var looper: AVPlayerLooper?
+    @IBOutlet weak var WK: WKWebView!
+    @IBOutlet weak var inputYTID: UITextField!
+    @IBAction func clickLoad(_ sender: Any) {
+        let url = URL(string: "https://www.youtube.com/embed/\(inputYTID.text ?? YTID)?autoplay=1&playisinline=1")!
+        WK.load(URLRequest(url: url))
+    }
+    var YTID : String? = ""
     override func viewDidLoad() {
-       super.viewDidLoad()
-       if let url = URL(string: "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3") {
-          let player = AVQueuePlayer()
-          let item = AVPlayerItem(url: url)
-          looper = AVPlayerLooper(player: player, templateItem: item)
-          player.play()
-       }
+        super.viewDidLoad()
+        if YTID == ""{
+            YTID="A4v438pYbm8"
+        }
+        guard let YTID = YTID else {
+            return
+        }
+        inputYTID.text = YTID
+        
+        let url = URL(string: "https://www.youtube.com/embed/\(YTID)?autoplay=1&playisinline=1")!
+        WK.load(URLRequest(url: url))
     }
 }
