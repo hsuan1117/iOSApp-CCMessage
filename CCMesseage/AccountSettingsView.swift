@@ -33,6 +33,10 @@ class AccountSettingsView: UIViewController {
         ACM.onAuthInit(completion: {
             AuthResult in
             let db = Firestore.firestore()
+            if Auth.auth().currentUser == nil {
+                self.showAlert(title: "警告", message: "你沒有登入")
+                return
+            }
             db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(completion: {
                 (snapshot,error) in
                 self.AccountName.text = snapshot?["name"] as? String ?? ""

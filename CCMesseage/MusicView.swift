@@ -12,7 +12,7 @@ class MusicView: UIViewController {
     var looper: AVPlayerLooper?
     override func viewDidLoad() {
        super.viewDidLoad()
-       if let url = URL(string: "https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview118/v4/69/0e/98/690e98db-440d-cb0c-2bff-91b00a05bdda/mzaf_1674062311671795807.plus.aac.p.m4a") {
+       if let url = URL(string: "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3") {
           let player = AVQueuePlayer()
           let item = AVPlayerItem(url: url)
           looper = AVPlayerLooper(player: player, templateItem: item)
