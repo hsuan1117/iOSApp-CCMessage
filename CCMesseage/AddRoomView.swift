@@ -29,12 +29,20 @@ class AddRoomView: UIViewController, UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UserListTable.dequeueReusableCell(withIdentifier: "user_cell") as! UserListCell
         print(users.keys)
+        cell.accessoryType = .none
         cell.UserName.text = filteredUsers[Array(filteredUsers.keys)[indexPath.row]]
         cell.UserUID.text  = Array(filteredUsers.keys)[indexPath.row]
         return cell
     }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath){
+            cell.accessoryType = .none
+        }
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(title: "選擇", message: "您選擇了\(filteredUsers[Array(filteredUsers.keys)[indexPath.row]] ?? "")")
+        if let cell = tableView.cellForRow(at: indexPath){
+            cell.accessoryType = .checkmark
+        }
     }
     
     @IBOutlet weak var SearchController: UISearchBar!
