@@ -32,7 +32,8 @@ class AccountManager {
             ref = db.collection("users").document((authResult?.user.uid)!)
             ref?.setData([
                 "name":account.split(separator: "@")[0],
-                "rooms":[]
+                "rooms":[],
+                "avatar":""
             ])
             
             onRegister(AuthResult(auth: authResult,error: error))
@@ -64,6 +65,17 @@ class AccountManager {
         }
     }
     
+    func setAvatar(avatar:String,completion:@escaping ()->()){
+        let db  = Firestore.firestore()
+        var ref : DocumentReference? = nil
+        ref = db.collection("users").document(Auth.auth().currentUser!.uid)
+        ref?.updateData([
+            "avatar":avatar
+        ]){
+            error in
+            completion()
+        }
+    }
     
     func loginAnonymous(
         completion: @escaping (AuthResult)->()){
